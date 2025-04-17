@@ -6,9 +6,10 @@ export type AvailableLocale = 'en' | 'fr' | 'es'
 export class LocaleService {
   private currentLocale = signal<AvailableLocale>('es');
 
-  constructor(){
-    (this.currentLocale.set(localStorage.getItem('locale') as AvailableLocale) ?? 'es');
+  constructor() {
+    this.currentLocale.set( localStorage.getItem( 'locale' ) as AvailableLocale ?? 'es' );
   }
+
 
   get getLocale(){
     return this.currentLocale();
